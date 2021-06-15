@@ -5,6 +5,7 @@ import Login from './components/Login';
 
 import UserComponent from './components/user/UserComponent';
 import AdminComponent from './components/admin/AdminComponent';
+import Order from './components/user/Order';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <Route path="/" exact component={Login}></Route>
       <Route path="/admin" exact component={AdminComponent}></Route>
       <Route path="/user" exact component={UserComponent}></Route>
+      <Route path="/order" exact component={Order}></Route>
 
       </Switch>
       </Router>
