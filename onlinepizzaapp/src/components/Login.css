@@ -1,0 +1,132 @@
+.new {
+    height: 100vh;
+    background-size: cover;
+    padding-top: 60px;
+    
+    background-image: url(https://images.pexels.com/photos/7821913/pexels-photo-7821913.jpeg );
+  }
+  
+  .box {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25rem;
+    padding: 2.5rem;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 0.625rem;
+  }
+  
+  .box h2 {
+    margin: 0 0 1.875rem;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .box .inputBox {
+    position: relative;
+  }
+  
+  .box .inputBox input {
+    width: 100%;
+    padding: 0.625rem 0;
+    font-size: 1rem;
+    color: #fff;
+    letter-spacing: 0.062rem;
+    margin-bottom: 1.875rem;
+    border: none;
+    border-bottom: 0.065rem solid #fff;
+    outline: none;
+    background: transparent;
+  }
+  
+  .box .inputBox label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0.625rem 0;
+    font-size: 1.5rem;
+    color: #fff;
+    pointer-events: none;
+    transition: 0.5s;
+  }
+  
+  .box .inputBox input:focus ~ label,
+  .box .inputBox input:valid ~ label,
+  .box .inputBox input:not([value=""]) ~ label {
+    top: -1.1rem;
+    left: 0;
+    color: #03a9f4;
+    font-size: 1rem;
+  }
+  p.change_link{
+    font-size: 1.5rem;
+    color: #fff;
+
+  }
+  
+  .box input[type="submit"] {
+    border: none;
+    outline: none;
+    color: #fff;
+    background-color: #03a9f4;
+    padding: 0.625rem 1.25rem;
+    cursor: pointer;
+    border-radius: 0.312rem;
+    font-size: 1rem;
+  }
+  .login-one p.change-link{
+    font-size: 3rem;
+    color: rgba(48, 27, 121, 0);
+
+
+  }
+  .box-one {
+    
+    position: absolute;
+    top: 80%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    width: 25rem;
+    height:10rem;
+    padding: 2.5rem;
+    box-sizing: border-box;
+    background: rgba(251, 251, 251, 0.6);
+    border-radius: 0.625rem;
+   
+  }
+  .service .box {
+    top:0px;
+    width: 28rem;
+    height: 25rem;
+    padding: 2.5rem;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 0.625rem;
+    color: white;
+  }
+  
+  .image{
+    height: 100vh;
+    background-image: url(https://assets.vccircle.com/uploads/2017/09/healthcare-3.gif);
+    background-size: cover;
+    
+  }
+  .contactbox .box {
+    top:100px;
+    width: 50rem;
+    height: 30rem;
+    padding: 2.5rem;
+    border-color: black;
+    background: rgb(180, 209, 236);
+    border-radius: 0.625rem;
+    color: rgb(20, 20, 20);
+  }
+  .caraousel-inner img{
+    object-fit: contain;
+  }
+  
+  
+  
