@@ -3,12 +3,12 @@
     background-size: cover;
     padding-top: 60px;
     
-    background-image: url(https://images.pexels.com/photos/7821913/pexels-photo-7821913.jpeg );
+    background-image: url(images/vg.jpg);
   }
   
   .box {
     position: absolute;
-    top: 60%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 25rem;
@@ -79,9 +79,13 @@
   }
   .login-one p.change-link{
     font-size: 3rem;
-    color: rgba(48, 27, 121, 0);
+    color: white;
 
 
+  }
+  .link-change{
+    font-size: 1.5rem;
+    color:rgb(245, 16, 16);
   }
   .box-one {
     
@@ -127,6 +131,7 @@
   .caraousel-inner img{
     object-fit: contain;
   }
+  
   
   
   

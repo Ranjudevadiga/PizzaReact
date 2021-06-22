@@ -1,0 +1,242 @@
+.order-pizza{
+    background: linear-gradient(45deg, #49a09d, #d4cfd8);
+    height: 150vh;
+}
+.price-sort{
+  background: linear-gradient(45deg, #49a09d, #d4cfd8);
+  padding-right: 500vh;
+
+}
+.order{
+    height: 100vh;
+    background-size: cover;
+    padding-top: 60px;
+    background-image: url(  https://www.pixelstalk.net/wp-content/uploads/2016/09/All-White-Background-for-Desktop-620x388.jpg);
+  }
+  .pizza-display{
+    background: linear-gradient(45deg, #49a09d, #d4cfd8);
+    height: 100%;
+}
+.order-display{
+  background: linear-gradient(45deg, #49a09d, #d4cfd8);
+  height: 200%;
+}
+.form-group .errorMsg{
+  float:left;
+  color: #f40303;
+  font-size: 1.3rem;
+
+
+}
+.coupon-table {
+  width: 800px;
+  border-collapse: collapse;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+.ordernow {
+  display:block;
+  border-radius: 24px;
+  width: 120px;
+ 
+  border: 2px solid white;
+  color: #FFF;
+  padding: 5px 8px;
+  background-image:  linear-gradient(to right, rgb(100, 65, 165) 0%, rgb(42, 8, 69) 51%, rgb(100, 65, 165) 100%);
+  }
+  .ordernow:hover{
+    background-color:  pink;
+     box-shadow: 0 4px 15px 0 rgba(0,0,0, 0.75);
+     
+ }
+                        
+ .form-group{
+  width:300px;
+  align-self: center;
+  margin: 50px auto;
+ 
+
+width: 35rem;
+padding: 2.5rem;
+box-sizing: border-box;
+background: rgba(0, 0, 0, 0.6);
+border-radius: 0.625rem;
+ 
+ 
+}
+.form-group .form-control{
+color:rgb(5, 5, 5)
+
+
+}
+.view  {
+  height: 100%;
+  width:100%
+}
+
+.view  {
+  margin: 0;
+  background: linear-gradient(45deg, #49a09d, #d4cfd8);
+  font-family: sans-serif;
+  font-weight: 100;
+}
+.ordernow1 .form-group label{
+  color: black;
+  
+}
+.ordernow1{
+  background-color: linear-gradient(45deg, #49a09d, #d4cfd8);
+}
+.update .form-group label{
+  color: black;
+  
+}
+.update{
+  background-color: linear-gradient(45deg, #49a09d, #d4cfd8);
+}
+
+
+
+.view  {
+  height: 100%;
+  width:100%
+}
+
+.view  {
+  margin: 0;
+  background: linear-gradient(45deg, #49a09d, #d4cfd8);
+  font-family: sans-serif;
+  font-weight: 100;
+}
+.viewcust h1{
+  text-align: center;
+}
+
+.viewcust .customer-table {
+  width: 800px;
+  border-collapse: collapse;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.update .form-group label{
+  color: black;
+  
+}
+.update{
+  background-color: linear-gradient(45deg, #49a09d, #d4cfd8);
+}
+
+.customer-table th,
+td {
+  padding: 15px;
+  background-color: rgba(255,255,255,0.2);
+  color: rgb(0, 0, 0);
+}
+
+/*.customer-table th {
+*/
+.customer-table tbody tr:hover{
+  background-color:rgba(255,255,255,0.3);
+}
+.view .viewbtn{cursor: pointer; 
+  border: 1px solid #3498db; 
+ 
+  background-color: transparent; 
+  height: 40px; 
+  text-align: center;
+   justify-content: center;
+  width: 150px; 
+  color: #040224; 
+  font-size: 1.5rem; 
+  font-weight: bold;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+
+}
+
+
+
+#AdminUpdatePolicy .form-group{
+  width:300px;
+  align-self: center;
+  margin: 50px auto;
+ 
+
+width: 35rem;
+padding: 2.5rem;
+box-sizing: border-box;
+background: rgba(0, 0, 0, 0.6);
+border-radius: 0.625rem;
+ 
+ 
+}
+.form-group .form-control{
+color:rgb(5, 5, 5)
+
+
+}
+label{
+  color: rgb(253, 253, 253);
+  font-size: medium;
+}
+
+
+
+.form-group .errorMsg{
+  float:left;
+  color: #f40303;
+  font-size: 1.3rem;
+
+
+}
+.admin-clas{
+  height: 150vh;
+  
+  background-size: contain;
+  background-image: url(https://www.iifl.com/sites/default/files/Family_Floater_mailer_700x400_1.jpg);
+  opacity: 0.7;
+}
+.admin-clas h2{
+  box-sizing: border-box;
+  font-size: 5rem;
+  text-align: center;
+  line-height: 300px;
+  color: rgb(25, 8, 124);
+}
+/*.admin-clas .btn {
+  cursor: pointer; 
+  border: 1px solid #3498db; 
+  top:70%;
+  background-color: transparent; 
+  height: 40px; 
+  text-align: center;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  width: 200px; 
+  color: #3498db; 
+  font-size: 1.5rem; 
+  font-weight: bold;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+}*/
+.policy-display{
+  background: linear-gradient(45deg, #49a09d, #d4cfd8);
+  height: 100vh;
+}
+.add-policy{
+  background: linear-gradient(45deg, #49a09d, #d4cfd8);
+  height: 100vh;
+}
+.table-head{
+  background-color: #040224;
+  font-style: italic;
+  text-align: center;
+  color: #FFF;
+
+}
+.table-row{
+  background: linear-gradient(45deg, #49a09d, #d4cfd8);
+  text-align: center;
+  color: #f40303;
+
+}

@@ -58,11 +58,11 @@ class Login extends Component{
     {
         if(login.role==="admin")
         {
-            return <Redirect to="/admin"></Redirect>
+            window.location.href="/admin";
         }
         else if(login.role==="user"){
           
-            return <Redirect to="/user"></Redirect>
+            window.location.href="/user";
         }
         else{
             alert("invalid user....");
@@ -93,7 +93,7 @@ class Login extends Component{
       <p class="change_link">
           <br></br>
 					Not a member yet ?
-					<a href="/register" class="to_register"> Sign Up</a>
+					<a href="/register" class="link-change"> Sign Up</a>
 				</p>
     </form>
     </div>

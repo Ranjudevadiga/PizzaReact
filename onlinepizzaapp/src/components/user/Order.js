@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import * as UserAction from '../../store/actions/UserAction';
 import {bindActionCreators} from 'redux';
 import {Link} from 'react-router-dom';
+import './order.css';
 
 class Order extends Component {
     constructor(props){
@@ -11,28 +12,33 @@ class Order extends Component {
         this.state = {
             pizzaId : props.location.state.pizza.pizzaId,
             pizzaSize:props.location.state.pizza.pizzaSize,
-            pizzaQuantity:0,
-            transactionMode:'',
-            couponName:'',
-            customerId:sessionStorage.getItem('userId')
+            pizzaQuantity:1,
+            transactionMode:'Cash on Delivery only',
+            couponName:null,
+            customerId:sessionStorage.getItem('userId'),
+            isHidden:true,
 
-            
+
+            errors:{}
         }
     } 
-//     validate = () => {
-//         let errors = {}
-//         let formIsValid = true
-//         if(!this.state.departmentName)
-//         {
-//             formIsValid = false
-//             errors['departmentName'] = '*Please enter this field '
-//         }
-//         this.setState({ errors })
-//         return formIsValid
-//    }
-  
+    validate = () => {
+        let errors = {}
+        let formIsValid = true
+        if(!this.state.pizzaQuantity)
+        {
+            formIsValid = false
+            errors['pizzaQuantity'] = '*Please enter this field '
+        }
+        this.setState({ errors })
+        return formIsValid
+   }
+
     order= (e) =>{
         e.preventDefault();
+        if(this.validate()){
+
+        
        
         let payload = {
             pizzaId : this.state.pizzaId,
@@ -44,8 +50,20 @@ class Order extends Component {
         }
         this.props.UserAction.orderPizza(payload);
     }
+    }
         
-       
+      toggleHidden=(event)=>{
+          event.preventDefault();
+          var x=document.getElementsByClassName("cp")[0];
+          if(x.style.display=="none"){
+          x.style.display="block";
+          this.props.UserAction.getCoupon();
+          }else{
+            x.style.display="none";
+
+          }
+          
+      } 
     
     onChange = (obj) => {
         this.setState({[obj.target.name] : obj.target.value});
@@ -54,21 +72,48 @@ class Order extends Component {
        
         
         return(
-            <div class="container">
+            <div class="order-pizza">
 			    <h1>Order Pizza</h1>
 				 <form >
 				    
-                    
-					    <h5>Enter Quantity</h5>
+                    <div className="form-group">
+					    <label>Enter Quantity</label>
 						<input type="number" name="pizzaQuantity" className="form-control" value={this.state.pizzaQuantity} onChange={this.onChange}  required="required" style={{width:"200px",display:"inline-block"}}></input><br></br>
-						<h5>Enter CouponName</h5>
-						<input type="text" name="couponName" className="form-control" value={this.state.couponName} onChange={this.onChange}  required="required" style={{width:"200px",display:"inline-block"}}></input><br></br>
+                        <div  className='errorMsg'>{this.state.errors.pizzaQuantity}</div><br></br>
+
+                        <label>Enter CouponName</label>
+						<input type="text" name="couponName" className="form-control" value={this.state.couponName} onChange={this.onChange}   style={{width:"200px",display:"inline-block"}}></input>
+                        <br></br><button className="btn btn-success" onClick={this.toggleHidden}>View Coupon</button><br></br><br></br>
+
+                        <div  class="cp" style={{display:'none'}}>
+
+                        <table className="table table-striped table-bordered">
+                    
+                    <thead class="table-head">
+                        <tr>
+                            <th>Coupon Name</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody className="table-row">
+                        {
+                            this.props.allcoupon.map((coupon)=>
+                                <tr key={coupon.couponId}>
+                                   
+                                   <td>{coupon.couponName}</td>
+                                    <td>{coupon.couponDescription}</td> 
+                                </tr>
+                            )
+                        }
+                    </tbody>
+                </table>
+                        </div>
+                        <label>TransactionMode</label>
+						<input type="text" name="transactionMode" className="form-control" value={this.state.transactionMode} onChange={this.onChange}   style={{width:"200px",display:"inline-block"}} readOnly></input><br></br><br></br>
 						
-                        <h5>Enter transactionMode</h5>
-						<input type="text" name="transactionMode" className="form-control" value={this.state.transactionMode} onChange={this.onChange}  required="required" style={{width:"200px",display:"inline-block"}}></input><br></br>
-						
-                        <button className="btn btn-success" onClick={this.order}>Order Now</button>
-                        <Link to="/user"> <button className="btn btn-warning">Back</button></Link>
+                        <button className="btn btn-success" onClick={this.order}><b>Order Now</b></button>
+                        <Link to="/user"> <button className="btn btn-danger">Back</button></Link>
+                </div>
 					</form>
                    
 				</div>
@@ -79,6 +124,8 @@ class Order extends Component {
 function mapStateToProps(state) {
     return {
     //    editdept : state.DepartmentReducer.editdept,
+    allcoupon:state.UserReducer.allcoupon
+
        };
    }
    function mapDispatchToProps(dispatch){
