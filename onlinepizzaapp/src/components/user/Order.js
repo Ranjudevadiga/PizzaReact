@@ -83,7 +83,7 @@ class Order extends Component {
 
                         <label>Enter CouponName</label>
 						<input type="text" name="couponName" className="form-control" value={this.state.couponName} onChange={this.onChange}   style={{width:"200px",display:"inline-block"}}></input>
-                        <br></br><button className="btn btn-success" onClick={this.toggleHidden}>View Coupon</button><br></br><br></br>
+                        <br></br><button className="btn btn-success" style={{margin:"10px"}} onClick={this.toggleHidden}>View Coupon</button><br></br><br></br>
 
                         <div  class="cp" style={{display:'none'}}>
 

@@ -38,7 +38,7 @@ render(){
     <div class="order-display">
     <Link to="/user"> <button style={{marginLeft:"5px"}} className="btn btn-warning">Back</button></Link>
                 
-                <h2 align="center">Order List</h2>
+                <h2 align="center">Active Order</h2>
               
                 <table className="table table-striped table-bordered">
                     

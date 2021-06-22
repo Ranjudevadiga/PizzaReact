@@ -17,15 +17,15 @@ render(){
         <body>
      
      <div class="order-display">
+     <Link to="/allorder"> <button style={{marginLeft:"5px"}} className="btn btn-warning">Back</button></Link>
                  
-                 <h2 align="center">Order List</h2>
+                 <h2 align="center"></h2>
                
                  <table className="table table-striped table-bordered">
                      
                      <thead>
                          <tr>
-                             <th>id</th>
-                             <th>Pizza Name</th>
+                            
                              <th>Pizza Quantity</th>
                              
                              <th>Total Cost</th>
@@ -44,8 +44,7 @@ render(){
                      <tbody>
                          {
                                      <tr key={order.bookingOrderId}>
-                                     <td>{order.bookingOrderId}</td>
-                                     <td>{order.pizza.pizzaName}</td>
+                                    
                                     <td>{order.pizzaQuantity}</td>
                                      
                                      <td>{order.totalCost}</td>
@@ -85,3 +84,4 @@ render(){
 
  export default connect(mapStateToProps,mapDispatchToProps) (ViewOrderById);
  
+

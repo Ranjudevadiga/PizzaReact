@@ -3,7 +3,12 @@ const initialState ={
     addpizza :undefined,
     updatepizza :undefined,
     getallpizza :undefined,
-    deletepizza :undefined
+    deletepizza :undefined,
+    adcurrentOrder:[],
+    orderaccept:undefined,
+    ordercancel:undefined,
+    orderdeliver:undefined,
+    allorder:[]
 }
    
 
@@ -32,6 +37,32 @@ export default function AdminReducer(state = initialState,action){
                 ...state,
                 deletepizza : 'removed'
             }
+            case 'ORDER_SUCCESS' :
+                return {
+                    ...state,
+                    orderaccept : 'accepted'
+                }
+                case 'CANCEL_SUCCESS' :
+                    return {
+                        ...state,
+                        ordercancel : 'cancelled'
+                    }
+                    case 'DELIVER_SUCCESS' :
+                        return {
+                            ...state,
+                            orderdeliver : 'delivered'
+                        }
+
+            case 'GET_CURRENT_ORDER_SUCCESS':
+                return{
+                      ...state,
+                      adcurrentOrder:action.adcurrentOrder
+                  };
+                  case 'GET_ORDER_SUCCESS':
+                    return{
+                          ...state,
+                          allorder:action.allorder
+                      };
             
             default : 
                    return state

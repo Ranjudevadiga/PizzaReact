@@ -103,6 +103,7 @@ return(dispatch)=>{
     })
     .catch(Error=> {
         alert(Error.response.data);
+        window.location.href="/viewCurrentOrders";
         throw(Error);
     });
 };

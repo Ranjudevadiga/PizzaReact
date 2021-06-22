@@ -20,6 +20,8 @@ import AddPizza from './components/pizza/AddPizza';
 import GetAllPizza from './components/pizza/GetAllPizza';
 import DeletePizza from './components/pizza/DeletePizza';
 import UpdatePizza from './components/pizza/UpdatePizza';
+import AdminCurrentOrder from './components/admin/AdminCurrentOrder';
+import AllOrder from './components/admin/AllOrder';
 
 
 function App() {
@@ -47,6 +49,8 @@ function App() {
       <Route path="/getallpizza" exact component={GetAllPizza}></Route>
       <Route path="/deletepizza/:id" exact component={DeletePizza}></Route>
       <Route path="/updatepizza" exact component={UpdatePizza}></Route>
+      <Route path="/ordermanage" exact component={AdminCurrentOrder}></Route>
+      <Route path="/adminallorder" exact component={AllOrder}></Route>
 
 
 

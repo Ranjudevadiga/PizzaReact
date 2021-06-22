@@ -104,3 +104,127 @@ export const updatePizza = (payload) =>{
         });
     };
 };
+
+
+export const getCurrentOrderSuccess=(adcurrentOrder)=>{
+    console.log("inside current order");
+    
+    return{
+        type: 'GET_CURRENT_ORDER_SUCCESS',adcurrentOrder
+    }
+} ;
+
+export const getAdminCurrentOrders=()=>{
+    console.log("inside order method");
+    
+    return(dispatch)=>{
+        return axios.get(ADMINURL+"/viewAdminCurrentOrders/")
+        .then(Response=>{
+            localStorage.setItem("adcurrentOrder",JSON.stringify(Response.data));
+          
+       
+            dispatch(getCurrentOrderSuccess(Response.data));
+        })
+        
+    };
+};
+
+
+export const acceptOrderSuccess=()=>{
+    console.log("inside order accept success method");
+
+    window.location.href="/ordermanage"
+    return {
+        type : 'ORDER_ACCEPTED'
+    }
+};
+
+export const acceptOrder = (id) =>{
+    console.log("inside accept order method");
+    
+    return (dispatch)=> {
+        return axios.put(ADMINURL+"/acceptOrder/"+id)
+        .then(Response => {
+            console.log("api call");
+            dispatch(acceptOrderSuccess());
+        })
+        .catch(Error=> {
+            console.log("Error");
+            throw(Error);
+        });
+    };
+};
+
+export const cancelOrderSuccess=()=>{
+    console.log("inside cancel accept success method");
+
+    window.location.href="/ordermanage"
+    return {
+        type : 'ORDER_CANCEL'
+    }
+};
+export const cancelOrder = (id) =>{
+    console.log("inside cancel order method");
+    
+    return (dispatch)=> {
+        return axios.put(ADMINURL+"/cancelOrder/"+id)
+        .then(Response => {
+            console.log("api call");
+            dispatch(cancelOrderSuccess());
+        })
+        .catch(Error=> {
+            console.log("Error");
+            throw(Error);
+        });
+    };
+};
+
+
+export const deliverOrderSuccess=()=>{
+    console.log("inside deliver success method");
+
+    window.location.href="/ordermanage"
+    return {
+        type : 'ORDER_DELIVER'
+    }
+};
+export const deliverOrder = (id) =>{
+    console.log("inside deliver order method");
+    
+    return (dispatch)=> {
+        return axios.put(ADMINURL+"/deliver/"+id)
+        .then(Response => {
+            console.log("api call");
+            dispatch(deliverOrderSuccess());
+        })
+        .catch(Error=> {
+            alert(Error.response.data);
+            throw(Error);
+        });
+    };
+};
+
+
+export const getOrderSuccess=(allorder)=>{
+    console.log("inside  order");
+    
+    return{
+        type: 'GET_ORDER_SUCCESS',allorder
+    }
+} ;
+
+export const getAllOrder=()=>{
+    console.log("inside order method");
+    
+    return(dispatch)=>{
+        return axios.get(ADMINURL+"/viewOrders")
+        .then(Response=>{
+            localStorage.setItem("allorder",JSON.stringify(Response.data));
+          
+       
+            dispatch(getOrderSuccess(Response.data));
+        })
+        
+    };
+};
+
