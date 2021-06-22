@@ -7,6 +7,11 @@ import UserComponent from './components/user/UserComponent';
 import AdminComponent from './components/admin/AdminComponent';
 import Order from './components/user/Order';
 import ViewCurrentOrders from './components/user/ViewCurrentOrders';
+import CouponComponent from './components/coupon/CouponComponent';
+import AddCoupon from './components/coupon/AddCoupon';
+import DeleteCoupon from './components/coupon/DeleteCoupon';
+import EditCoupon from './components/coupon/EditCoupon';
+import GetAllCoupon from './components/coupon/GetAllCoupon';
 import UpdateOrder from './components/user/UpdateOrder';
 import OrderHistory from './components/user/OrderHistory';
 import ViewOrderById from './components/user/ViewOrderById';
@@ -27,6 +32,12 @@ function App() {
       <Route path="/updateOrder" exact component={UpdateOrder}></Route>
       <Route path="/allorder" exact component={OrderHistory}></Route>
       <Route path="/vieworderbyid/:id" exact component={ViewOrderById}></Route>
+      <Route path="/couponmanage" exact component={CouponComponent}></Route>
+      <Route path="/addcoupon" exact component={AddCoupon}></Route>
+      <Route path="/getallcoupon" exact component={GetAllCoupon}></Route>
+      <Route path="/deletecoupon/:id" exact component={DeleteCoupon}></Route>
+      <Route path="/editcoupon" exact component={EditCoupon}></Route>
+
 
       </Switch>
       </Router>

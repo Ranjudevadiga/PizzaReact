@@ -1,10 +1,11 @@
 import {combineReducers} from 'redux';
 import LoginReducer from './LoginReducer';
 import UserReducer from './UserReducer';
+import CouponReducer from './CouponReducer';
 
 const RootReducer=combineReducers({
 
-    LoginReducer,UserReducer
+    LoginReducer,UserReducer,CouponReducer
  
 });
 
