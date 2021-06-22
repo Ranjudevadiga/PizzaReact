@@ -15,6 +15,11 @@ import GetAllCoupon from './components/coupon/GetAllCoupon';
 import UpdateOrder from './components/user/UpdateOrder';
 import OrderHistory from './components/user/OrderHistory';
 import ViewOrderById from './components/user/ViewOrderById';
+import PizzaComponent from './components/pizza/PizzaComponent';
+import AddPizza from './components/pizza/AddPizza';
+import GetAllPizza from './components/pizza/GetAllPizza';
+import DeletePizza from './components/pizza/DeletePizza';
+import UpdatePizza from './components/pizza/UpdatePizza';
 
 
 function App() {
@@ -37,6 +42,12 @@ function App() {
       <Route path="/getallcoupon" exact component={GetAllCoupon}></Route>
       <Route path="/deletecoupon/:id" exact component={DeleteCoupon}></Route>
       <Route path="/editcoupon" exact component={EditCoupon}></Route>
+      <Route path="/pizzamanage" exact component={PizzaComponent}></Route>
+      <Route path="/addpizza" exact component={AddPizza}></Route>
+      <Route path="/getallpizza" exact component={GetAllPizza}></Route>
+      <Route path="/deletepizza/:id" exact component={DeletePizza}></Route>
+      <Route path="/updatepizza" exact component={UpdatePizza}></Route>
+
 
 
       </Switch>
