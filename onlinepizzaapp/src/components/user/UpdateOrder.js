@@ -3,6 +3,8 @@ import {connect } from 'react-redux';
 import * as UserAction from '../../store/actions/UserAction';
 import {bindActionCreators} from 'redux';
 import {Link} from 'react-router-dom';
+import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
+import {AppBar, Toolbar,Typography,MenuItem,Menu,Button} from '@material-ui/core';
 class UpdateOrder extends Component {
     constructor(props){
         super(props)
@@ -38,6 +40,10 @@ class UpdateOrder extends Component {
     componentDidMount(){
         console.log(this.props.location.state);
     }
+    logout(){
+        sessionStorage.removeItem("userId");
+        window.location.href="/";
+    }
     
     updateOrder= (e) =>{
         e.preventDefault();
@@ -65,6 +71,26 @@ class UpdateOrder extends Component {
         console.log(order);
         return(
            <div class="order-pizza">
+               <div>
+                <AppBar position="static">
+                    <Toolbar >
+                    <Typography variant="h4" edge="start">Welcome {sessionStorage.getItem("username")}</Typography>
+                    <PopupState variant="popover" popupId="demo-popup-menu">
+                         {(popupState) => (
+                        <React.Fragment>
+                        <Button variant="contained" color="primary" {...bindTrigger(popupState)}>
+                              <h5>Account Settings</h5>
+                        </Button>
+                         <Menu {...bindMenu(popupState)}>
+                         <Link to="/userprofile"><MenuItem ><h5>PROFILE</h5></MenuItem></Link>
+                         <MenuItem onClick={this.logout}><h5>LOGOUT</h5></MenuItem>
+                        </Menu>
+                        </React.Fragment>
+                         )}
+                    </PopupState>
+                    </Toolbar>
+                </AppBar>
+                </div>
                 <div class="row">
                     <div class="col-lg-4 col-lg-offset-4">
                        <h1>Update  Order </h1>

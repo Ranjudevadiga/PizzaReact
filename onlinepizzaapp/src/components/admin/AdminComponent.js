@@ -140,7 +140,7 @@ const logout=()=>{
       <List>
         {[''].map((text, index) => (
           <ListItem button key={text}>
-           <List><Link to="/customer">
+           <List><Link to="/getallcustomer">
               <Button  variant="contained" color="primary">
                    <Typography>Customer Manage </Typography>
                    </Button>

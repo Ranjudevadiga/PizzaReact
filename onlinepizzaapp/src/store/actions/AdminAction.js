@@ -1,5 +1,6 @@
 import axios from 'axios';
 const ADMINURL="http://localhost:8081//Admin";
+const CUSTOMERURL="http://localhost:8081/springrestdata/Admin";
 
 export const getPizzaSuccess =(pizza) => {
     console.log("inside getAllPizza method");
@@ -226,5 +227,23 @@ export const getAllOrder=()=>{
         })
         
     };
+};
+
+export const getCustomerSuccess =(customer) => {
+    console.log("inside getAllCustomerSuccess method");
+    return{
+        type: 'GET_ALL_CUSTOMER_SUCCESS',customer
+    }
+};
+export const getcustomer =() => {
+    console.log("inside getcustomer method");
+         return (dispatch) =>{
+             return axios.get(CUSTOMERURL+"/getallcustomer")
+             .then(Response => {
+                 localStorage.setItem("customer",JSON.stringify(Response.data));
+                 console.log("api call");
+                 dispatch(getCustomerSuccess(Response.data));
+             })
+         };
 };
 

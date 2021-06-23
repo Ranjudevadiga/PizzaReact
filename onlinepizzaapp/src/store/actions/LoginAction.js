@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const LOGINURL="http://localhost:8081/Customer";
+const LOGINURL="http://localhost:8081/springrestdata/Customer";
 
 export const loginSuccess=(login)=>{
 
@@ -35,7 +35,7 @@ export const loginValidate=(payload)=>{
 
         })
         .catch(Error=>{
-            alert(Error.response.data);
+            alert("error");
             throw(Error);
         });
     };

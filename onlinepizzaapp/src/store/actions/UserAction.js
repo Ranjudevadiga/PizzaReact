@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const PIZZAURL="http://localhost:8081/Customer";
 const PIZZAADMURL="http://localhost:8081/Admin";
+const CUSTOMERURL="http://localhost:8081/springrestdata/Customer";
 
 export const getPizzaSuccess=(allpizza)=>{
     console.log("inside registration success");
@@ -259,5 +260,133 @@ export const sortByPrice=(payload)=>{
         });
         
     };
+};
+
+
+
+export const getCustomerSuccess =(customer) => {
+    console.log("inside getAllCustomerSuccess method");
+    return{
+        type: 'GET_ALL_CUSTOMER_SUCCESS',customer
+    }
+};
+export const getcustomer =() => {
+    console.log("inside getcustomer method");
+         return (dispatch) =>{
+             return axios.get(CUSTOMERURL+"/getallcustomer")
+             .then(Response => {
+                 localStorage.setItem("customer",JSON.stringify(Response.data));
+                 console.log("api call");
+                 dispatch(getCustomerSuccess(Response.data));
+             })
+         };
+};
+export const addCustomerSuccess=()=>{
+    console.log("inside addCustomerSuccess method");
+    alert("Account created successfully");
+    window.location.href="/";
+    return{
+        type:'ADD_CUSTOMER_SUCCESS'
+    }
+};
+export const addCustomer=(payload)=>{
+    console.log("inside addCustomer method");
+    let customer={
+            customerName : payload.customerName,
+            role : payload.role,
+            customerMobile : payload.customerMobile,
+            customerEmail : payload.customerEmail,
+            customerAddress : payload.customerAddress,
+            password : payload.password
+            
+    }
+    return(dispatch)=>{
+        return axios.post(CUSTOMERURL+"/register",customer)
+        .then(Response => {
+            console.log("api call");
+            dispatch(addCustomerSuccess());
+        })
+        .catch(Error =>{
+            console.log("Error");
+            alert("Error");
+            throw(Error);
+        });
+    };
+};
+
+export const updateCustomerSuccess=()=>{
+    console.log("inside updateCustomerSuccess method");
+    alert("Updated Successfully");
+    
+    return {
+        type : 'CUSTOMER_UPDATED'
+    }
+};
+
+export const updateCustomer= (payload) =>{
+    console.log("inside updateCustomer method");
+    let customer = {
+            customerId: payload.customerId,
+            customerName : payload.customerName,
+            role : payload.role,
+            customerMobile : payload.customerMobile,
+            customerEmail : payload.customerEmail,
+            customerAddress : payload.customerAddress,
+            password : payload.password
+    }
+    return (dispatch)=> {
+        return axios.put(CUSTOMERURL+"/updateCustomer?customerId="+customer.customerId,customer)
+        .then(Response => {
+            console.log("api call");
+            dispatch(updateCustomerSuccess());
+        })
+        .catch(Error=> {
+            console.log("Error");
+            alert("Account updation unsuccessful");
+            throw(Error);
+        });
+    };
+};
+
+export const removeCustomerSuccess=()=>{
+    console.log("inside removeCustomerSuccess method");
+    alert("Account Deleted");
+    window.location.href="/";
+    return {
+        type : 'CUSTOMER_REMOVED'
+    }
+};
+
+export const removeCustomer = (code) =>{
+    console.log("inside removeCustomer method");
+    return (dispatch)=> {
+        return axios.delete(CUSTOMERURL+"/delete/"+code)
+        .then(Response => {
+            console.log("api call");
+            dispatch(removeCustomerSuccess());
+        })
+        .catch(Error=> {
+            console.log("Error");
+            throw(Error);
+        });
+    };
+};
+
+export const getCustomerbyidSuccess =(customer) => {
+    console.log("inside getCustomerbyidSuccess method");
+    return{
+        type: 'GET__CUSTOMER_BY_ID_SUCCESS',customer
+    }
+};
+export const getcustomerbyid =(id) => {
+    console.log("inside getcustomerbyid method");
+         return (dispatch) =>{
+             return axios.get(CUSTOMERURL+"/getbyid/"+id)
+             .then(Response => {
+                 localStorage.setItem("customer",JSON.stringify(Response.data));
+                 console.log("api call");
+                 dispatch(getCustomerbyidSuccess(Response.data));
+             })
+         };
 };
 

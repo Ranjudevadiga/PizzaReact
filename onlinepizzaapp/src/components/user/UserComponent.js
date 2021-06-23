@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import * as UserAction from '../../store/actions/UserAction';
 import {bindActionCreators} from 'redux';
 import './order.css'
-import CustomerLoginNav from './CustomerNavbar';
+import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
+import {AppBar, Toolbar,Typography,MenuItem,Menu,Button} from '@material-ui/core';
 
 class UserComponent extends Component{
     constructor(props){
@@ -28,7 +29,7 @@ class UserComponent extends Component{
 
     logout(){
         sessionStorage.removeItem("userId");
-        window.location.href="/login";
+        window.location.href="/";
     }
     componentDidMount(){
         this.props.UserAction.getPizza();
@@ -83,7 +84,26 @@ render(){
    return(
        
        <body>
-           <CustomerLoginNav/>
+            <div>
+                <AppBar position="static">
+                    <Toolbar >
+                    <Typography variant="h4" edge="start">Welcome {sessionStorage.getItem("username")}</Typography>
+                    <PopupState variant="popover" popupId="demo-popup-menu">
+                         {(popupState) => (
+                        <React.Fragment>
+                        <Button variant="contained" color="primary" {...bindTrigger(popupState)}>
+                              <h5>Account Settings</h5>
+                        </Button>
+                         <Menu {...bindMenu(popupState)}>
+                         <Link to="/userprofile"><MenuItem ><h5>PROFILE</h5></MenuItem></Link>
+                         <MenuItem onClick={this.logout}><h5>LOGOUT</h5></MenuItem>
+                        </Menu>
+                        </React.Fragment>
+                         )}
+                    </PopupState>
+                    </Toolbar>
+                </AppBar>
+                </div>
         <div className="order-pizza">
            
 <div style={{float:'right'}}>

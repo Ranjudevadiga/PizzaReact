@@ -22,6 +22,11 @@ import DeletePizza from './components/pizza/DeletePizza';
 import UpdatePizza from './components/pizza/UpdatePizza';
 import AdminCurrentOrder from './components/admin/AdminCurrentOrder';
 import AllOrder from './components/admin/AllOrder';
+import UpdateCustomer from './components/user/UpdateCustomer';
+import RemoveCustomer from './components/user/RemoveCustomer';
+import AddCustomer from './components/user/AddCustomer';
+import GetById from './components/user/GetById';
+import GetAllCustomer from './components/user/GetAllCustomer';
 
 
 function App() {
@@ -51,6 +56,14 @@ function App() {
       <Route path="/updatepizza" exact component={UpdatePizza}></Route>
       <Route path="/ordermanage" exact component={AdminCurrentOrder}></Route>
       <Route path="/adminallorder" exact component={AllOrder}></Route>
+
+      
+      <Route path="/getallcustomer" exact component={GetAllCustomer}></Route>
+      <Route path="/UpdateCustomer" exact component={UpdateCustomer}></Route>
+      <Route path="/userprofile/:id" exact component={RemoveCustomer}></Route>
+      <Route path="/register" exact component={AddCustomer}></Route>
+      <Route path="/userprofile" exact component={GetById}></Route>
+      
 
 
 

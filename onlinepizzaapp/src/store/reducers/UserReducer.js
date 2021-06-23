@@ -7,7 +7,12 @@ const initialState={
     updateOrder:undefined,
     allcoupon:[],
     allorder:[],
-    orderbyid:[]
+    orderbyid:[],
+    customer : [],
+    addcustomer :undefined,
+    updatecustomer :undefined,
+    getcustomer :undefined,
+    removecustomer :undefined
    
     
 }
@@ -71,6 +76,33 @@ export default function UserReducer(state=initialState,action){
                               ...state,
                               allpizza:action.allpizza
                           };
+                          case 'GET_ALL_CUSTOMER_SUCCESS':
+                            return{
+                                ...state,
+                                customer : action.customer
+                            };
+                            case 'GET__CUSTOMER_BY_ID_SUCCESS':
+                                return{
+                                    ...state,
+                                    customer : action.customer
+                                };
+                            case 'ADD_CUSTOMER_SUCCESS':
+                            return{
+                                ...state,
+                                addcustomer : 'added'
+                            };
+                
+                            case 'CUSTOMER_UPDATED' :
+                            return {
+                                ...state,
+                                updatecustomer : 'updated'
+                            };
+                
+                            case 'CUSTOMER_REMOVED' :
+                            return {
+                                ...state,
+                                removecustomer : 'removed'
+                            }
                 
         
             default:
